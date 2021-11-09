@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+:root {
+    --secondary-colour:rgb(30,30,30);
+    --primary-colour:rgb(50,50,50);
+}
+* {
+    box-sizing:border-box;
+}
+
+.noScoll {
+    overflow-y:hidden;
+}
+
+body {
+    padding-left:0;
+    margin:0;
+    font-family:"Montserrat", sans-serif;
+    overflow-x:hidden !important;
+    color:gainsboro;
+    background-color:var(--primary-colour);
+}
+
+a {
+    color:lightblue;
+}
+.dropSection {
+    user-select:none;
+}
+
+a[title]:not(.has-title-tag) {
+    display:none;
+}
+
+header {
+    display:table;
+    width:100%;
+    height:100vh;
+}
+#header {
+    display:table-cell;
+    top:0;
+    left:0;
+    width:100%;
+    vertical-align:middle;
+    color:white;
+    margin-top:0;
+    font-size:17vw;
+    text-align:center;
+    font-weight:lighter;
+    text-shadow: 2px 0px 40px rgba(0, 0, 0, 0.7);
+}
+
+h1,h2,h3 {
+    font-family:"Righteous", cursive;
+}
+h1:not(#header),h2,h3 {
+    font-size:2rem;
+}
+
+#menuButton {
+    display:none;
+}
+
+nav {
+    font-size:0;
+    width:100%;
+    height:7vh;
+    background-color:rgb(200,200,200);
+    box-shadow:0px -30px 60px 1px rgba(0,0,0,0.41);
+    white-space:nowrap;
+    border-bottom:5px solid var(--secondary-colour);
+}
+nav a {
+    font-size:2rem;
+    display:table-cell;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    font-weight:100;
+    font-family:"Righteous", cursive;
+    color:var(--primary-colour);
+    margin:0;
+    vertical-align:middle;
+}
+nav > div::after,nav > div::before {
+    position:absolute;
+    content:"";
+    border:0 solid transparent;
+}
+
+nav > #selected::after,nav > div:not(#dropDown):hover::after {
+    border-left:0vw solid var(--secondary-colour);
+    border-right: 1.5vw solid transparent;
+    border-bottom:7vh solid var(--secondary-colour);
+    transition:1s border-color;
+}
+nav > #selected::before,nav > div:not(#dropDown):hover::before {
+    border-right:0vw solid var(--secondary-colour);
+    border-left: 1.5vw solid transparent;
+    border-top: 7vh solid var(--secondary-colour);
+    transition:1s border-color;
+    margin-left:-1.5vw;
+}
+
+nav > div, nav > span > div {
+    font-size:0;
+    vertical-align:top;
+    width:20%;
+    height:calc(7vh - 4px);
+    display:inline-table;
+}
+
+.last:hover::after, #selected.last::after {
+    border-left:20vw solid var(--secondary-colour) !important;
+}
+
+#menuText {
+    display:none;
+    margin-left:5px;
+    font-size:2.5rem;
+    color:black;
+}
+.sticky {
+    position:fixed !important;
+    top:0;
+    box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.41);
+    z-index:1;
+}
+
+#mobileMenu {
+    display:none;
+}
+
+.move {
+    margin-top:calc(7vh + 2rem);
+}
+
+#selected,nav div:not(#dropDown):not(.sectionTitle):hover {
+    background-color:var(--secondary-colour) !important;
+    transition:1s background-color, 1s color;
+}
+#selected {
+    margin:0;
+}
+
+#selected a,nav div:not(#dropDown):not(.dropSection):not(.sectionTitle):hover a {
+    color:white;
+}
+
+
+#dropDown {
+    position:absolute;
+    display:none;
+    right:0;
+    width:100vw;
+    height:35vh;
+    margin:0;
+    line-height:7vh;
+    text-align:center;
+    cursor:pointer;
+    z-index:2;
+    white-space:nowrap;
+    font-size:0
+}
+#dropDown div a {
+    display:block;
+    height:100%;
+    line-height:7vh;
+    transform:skewX(0);
+    font-size:2rem;
+}
+
+#dropDown div:not(.dropSection) {
+    background-color:gainsboro;
+    width:100%;
+    height:7vh;
+    padding:0 1vw;
+}
+.dropSection {
+    display:inline-block;
+    width:calc(100% / 3);
+    height:100%;
+    border-right:1px solid var(--secondary-colour);
+}
+.sectionTitle {
+    color:black !important;
+    font-weight:bold;
+    font-size:2rem;
+}
+
+
+#menu:hover + #dropDown {
+    display:block;
+    box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.41);
+}
+#dropDown:hover {
+    display:block;
+}
+
+#downArrow {
+    position:absolute;
+    bottom:1vh;
+    left:0;
+    text-align:center;
+    width:100%;
+    font-size:10rem;
+    animation:float 4s infinite ease-in-out;
+    cursor:pointer;
+}
+#arrowInner {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5vw;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+@keyframes float {
+    0% {
+        transform:translateY(0px);
+    }
+    50% {
+        transform:translateY(-1vh);
+    }
+    100% {
+        transform:translateY(0px);
+    }
+}
+
+.content {
+    width:100%;
+    font-size:0;
+}
+
+p {
+    font-size:1rem !important;
+}
+
+.show-on-mobile {
+    display:none;
+}
+
+footer {
+    position:relative;
+    float:left;
+    width:100%;
+    height:10vh;
+    background-color:var(--secondary-colour);
+    padding:0 1vw;
+    font-size:16px;
+}
+footer div {
+    display:inline-block;
+    margin-top:1vw !important;
+}
+footer a:not(#titan) {
+    float:right;
+    display:inline-block;
+    width:10vh;
+    height:10vh;
+}
+.social {
+    width:10vh;
+}
+
+@media all and (max-width: 1120px) {
+    nav {
+        width:103%;
+    }
+    nav a,.sectionTitle {
+        font-size:1rem !important;
+    }
+}
+@media all and (max-width: 600px) {
+    .show-on-mobile {
+        display:block;
+    }
+    #dropDown {
+        display:none !important;
+    }
+
+    nav {
+        position:fixed;
+        top:0;
+        right:-100vw;
+        width:100%;
+        height:93vh;
+        margin-top:7vh;
+        white-space:normal;
+        z-index:2;
+        background-color:transparent !important;
+        box-shadow:none !important;
+        transition:1s right;
+    }
+    nav div:not(#menu):not(#dropDown) {
+        display:block !important;
+        transform:skewX(0) !important;
+        width:100% !important;
+        height:calc(93vh / 8) !important;
+        background-color:gainsboro;
+        border-bottom:1px solid grey;
+    }
+    nav div a {
+        display:inline-block;
+        transform:skewX(0) !important;
+        font-size:2rem !important;
+        height:calc(93vh / 8);
+        white-space:nowrap;
+        text-align:left;
+        padding-left:5px;
+        line-height:calc(93vh / 7);
+    }
+
+    h2 {
+        font-size:2rem !important;
+    }
+
+    #menu {
+        display:none;
+    }
+
+    #nav {
+        position:absolute;
+        display:block;
+        top:0;
+        width:100%;
+        height:7vh;
+        background-color:rgb(230,230,230);
+        z-index:1;
+    }
+    #mobileMenu::before{
+        position:absolute;
+        content: '';
+        width:7vh;
+        height:100%;
+        margin-left:-50vh;
+        background:var(--secondary-colour);
+        right:2.5vw;
+        bottom: 0;
+        z-index:-1;
+        transform:skewX(20deg);
+    }
+    #mobileMenu {
+        display:block;
+        float:right;
+        width:7vh;
+        height:7vh;
+        right:0;
+        background-color:var(--secondary-colour);
+        color:white;
+        font-size:2rem;
+        text-align:center;
+        cursor:pointer;
+        z-index:3;
+        line-height:7vh;
+    }
+
+    #menuButton:checked ~ nav {
+        display:block;
+        right:0;
+    }
+    #menuButton:checked ~ #menuText {
+        display:block;
+    }
+    #menuButton:checked ~ #mobileMenu {
+        background-color:transparent;
+    }
+    #menuButton:checked ~ #mobileMenu::before {
+        background-color:transparent;
+    }
+    #menuButton:checked ~ #mobileMenu .fa-bars {
+        display:none;
+    }
+    .fa-times::before {
+        display:none;
+    }
+    #menuButton:checked ~ #mobileMenu .fa-times::before {
+        display:block ;
+        color:var(--secondary-colour);
+    }
+
+    #mobileMenu span {
+        display:inline-block;
+    }
+    .move {
+        margin-top:0;
+    }
+    .show {
+        display:block !important;
+    }
+    #selected::before {
+        border:none !important;
+    }
+
+    footer {
+        height:auto;
+    }
+    footer div {
+        width:100%;
+        text-align:center;
+    }
+    footer a:not(#titan) {
+        float:none;
+        margin-left:calc((100% - 10vh) / 8) !important;
+    }
+}

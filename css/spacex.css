@@ -1,0 +1,482 @@
+body {
+    font-size:0;
+}
+#headerImage {
+    width:100%;
+    height:100vh;
+    object-fit:cover;
+    object-position:top;
+}
+#spaceXLogo {
+    position:absolute;
+    width:100%;
+    height:100vh;
+    object-fit:contain;
+    background-color:rgba(0,0,0,0);
+    filter: drop-shadow(0 0 0.75rem rgba(220,220,220,0.4));
+}
+
+#elon {
+    float:left;
+    width:40%;
+    height:110vh;
+    object-fit:cover;
+}
+#aboutSpacex {
+    font-size:1.4rem;
+    float:left;
+    width:60%;
+    padding:2vw;
+    border-left:5px solid var(--secondary-colour);
+    height:110vh;
+}
+#aboutSpacex p {
+    width:100%;
+    padding:0!important;
+    margin:0 !important;
+}
+#aboutSpacex h2 {
+    margin-top:0;
+}
+
+#threeImages {
+    float:left;
+    left:0;
+    width:100vw;
+    height:100vh;
+}
+.spacexFamily {
+    position:absolute;
+    display:block;
+    width:calc(100% / 3);
+    height:100vh;
+    border-top:5px solid var(--secondary-colour);
+    object-fit:cover;
+    cursor:pointer;
+    transition:all 1s, z-index 2s;
+}
+
+#f9Small,#fHSmall,#ssSmall {
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+#f9Small {
+    left:0;
+    background-image:url("../images/spacex/falcon9.png");
+}
+
+.showPanel {
+    width:100vw;
+    left:0 !important;
+    z-index:1;
+    background-image:none !important;
+    background-color:var(--primary-colour);
+    cursor:default;
+    border:none;
+}
+
+#fHSmall {
+    left:calc(100% / 3);
+    background-image:url("../images/spacex/falconHeavy.png");
+}
+#ssSmall {
+    left:calc((100% / 3) * 2);
+    background-image:url("../images/spacex/starshipSuperheavy.png");
+}
+#ssSmall .innerContent {
+    overflow-y:auto;
+}
+.showPanelButton {
+    display:inline-block;
+    font-size:8vw;
+    width:100%;
+    color:var(--primary-colour);
+    text-align:center;
+    line-height:99vh;
+    text-shadow: 2px 0px 40px rgba(200, 200, 200, 0.5);
+    margin:0;
+}
+
+.hide {
+    display:none;
+}
+.panelContent {
+    position:absolute;
+    width:100%;
+    top:0;
+    overflow-x:hidden;
+}
+.closePanel {
+    float:right;
+    width:5vw;
+    font-size:5rem;
+    color:white;
+}
+
+.panelTop {
+    position:fixed;
+    top:0;
+    width:100%;
+    height:5vw;
+    margin-bottom:2vh;
+    z-index:1;
+}
+
+.innerContent {
+    position:relative;
+    min-height:100vh;
+    overflow-y:hidden;
+    z-index:0;
+}
+
+#f9Large,.panelText {
+    float:right;
+    width:60%;
+    height:100vh;
+}
+#f9Large {
+    object-fit:cover;
+    object-position:top;
+    width:40%;
+}
+
+.panelText {
+    display:flex;
+    flex-direction:column;
+    padding:0 2vw;
+    font-size:1.4rem;
+    box-shadow:0px -1px 60px 1px rgba(0,0,0,0.49);
+}
+
+#fairingVideo {
+    width:calc(100% + 4vw);
+    flex-basis:100%;
+    margin-left:-2vw;
+}
+
+#fhLarge {
+    width:100%;
+    height:100vh;
+    object-fit:cover;
+    object-position:center;
+}
+.fhTitle {
+    position:absolute;
+    top:0;
+    width:auto;
+    background-color:var(--primary-colour);
+    transform:skewX(-20deg);
+    padding:1vw;
+    padding-left:3vw;
+    margin-left:-2vw;
+    border:5px solid var(--secondary-colour);
+    border-top:none;
+}
+.fhTitle h2 {
+    margin:0;
+    transform:skewX(20deg);
+    text-align:center;
+}
+
+#videoPane {
+    position:absolute;
+    bottom:0;
+    box-shadow:0px -1px 60px 1px rgba(0,0,0,0.41);
+    border-radius:10px;
+}
+video {
+    border-radius:10px 10px 0px 0px;
+    width:42vw;
+}
+#videoCaption {
+    font-size:1rem;
+    padding:1vw;
+    color:gainsboro;
+    background-color:var(--secondary-colour);
+    border-radius:0px 0px 10px 10px;
+}
+
+.fhContent {
+    position:absolute;
+    top:calc(10vh + 5vw);
+    right:3vw;
+    width:30vw;
+    font-size: 1.4rem;
+    background-color:var(--primary-colour);
+    border-radius:10px;
+    padding:1vw;
+    text-align:justify;
+    box-shadow:0px -1px 60px 1px rgba(0,0,0,0.41);
+    border:5px solid var(--secondary-colour);
+    border-width:0px 0px 5px 0px
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    opacity: 0.9;
+}
+.close:hover {
+    opacity: 1;
+}
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 51px;
+    width: 2px;
+    background-color: gainsboro;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}
+
+#fullscreenVideo {
+    position:fixed;
+    top:0;
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    border-radius:0;
+}
+
+#ssDescriptor {
+    top:calc(5vw + 9vh);
+    left:0.5vw;
+}
+#ssContent {
+    position:absolute;
+    top:100vh;
+    width:100%;
+    font-size:1.4rem;
+    padding:0 2vw;
+    background-color:var(--primary-colour);
+    box-shadow: 0px -2px 60px 1px rgba(0,0,0,0.9);
+}
+#marsBase {
+    position:absolute;
+    left:0;
+    width:100%;
+    height:70vh;
+    object-fit:cover;
+    z-index:0;
+}
+#spacexVidoes {
+    position:absolute;
+    z-index:1;
+}
+#spacexVidoes .fhTitle {
+    margin-left:-5vw !important;
+}
+#videos {
+    font-size:0;
+    margin-left:-2vw;
+    margin-top:8vw;
+    white-space:nowrap;
+}
+.spxVidoes {
+    width:42.5vw;
+    height:50vh;
+    margin-left:5vw;
+    box-shadow: 0px -1px 60px 1px rgba(0,0,0,0.9);
+    border-radius: 10px;
+    border:1px solid grey;
+}
+#lastPara {
+    margin-bottom:20vh;
+}
+
+@media all and (max-width: 875px) {
+    video:not(#fullscreenVideo) {
+        width:60vw;
+    }
+}
+@media all and (max-width: 705px) {
+    #aboutSpacex,#elon {
+        height:115vh !important;
+    }
+    #threeImages {
+        top:115vh !important;
+    }
+    #lastPara {
+        margin-bottom:2vh !important;
+    }
+}
+@media all and (max-width: 650px) {
+    #aboutSpacex,#elon {
+        height:132vh !important;
+    }
+    #threeImages {
+        top:120vh !important;
+    }
+    .close {
+        margin-left:-3vw;
+    }
+
+    #fHSmall {
+        overflow-y:hidden;
+    }
+
+    .fhTitle,#spacexVidoes .fhContent {
+        margin-left:-3.9vw !important;
+    }
+
+    #fhLarge {
+        width:150vw !important;
+        object-position:center;
+    }
+
+    .fhContent {
+        width:40vw !important;
+        padding:2vw !important;
+        top:calc(10vh + 1vw) !important;
+        left:0 !important;
+        border-radius:0 10px 10px 0;
+    }
+
+    #ssSmall .close {
+        margin-left:-6.5vw;
+    }
+    #ssDescriptor {
+        width:100% !important;
+        border-radius:0;
+        background-color:var(--primary-colour);
+        bottom:0;
+    }
+    #fullscreenVideo {
+        height:60vh;
+    }
+    #ssContent {
+        top:60vh !important;
+    }
+
+    video:not(#fullscreenVideo) {
+        width:65vw !important;
+    }
+
+    #videos {
+        margin-top:12vw;
+        white-space:normal;
+        margin-left:-4vw;
+    }
+    .spxVidoes {
+        width:90vw;
+        margin-bottom:2vh;
+    }
+    #marsBase {
+        height:120vh;
+    }
+    #lastPara {
+        margin-bottom:0 !important;
+    }
+
+    .fhContent {
+        top:calc(10vh + 4vw) !important;
+        padding:0 2vw !important;
+    }
+}
+
+@media all and (max-width: 600px) {
+    #elon {
+        width:100vw;
+        height:50vh !important;
+        object-position:top;
+    }
+    #aboutSpacex {
+        width:100vw;
+        height:auto !important;
+        padding-bottom:2vh !important;
+        border-left:none;
+        line-height:1em;
+    }
+    #threeImages {
+        position:static;
+        float:left;
+        height:270vh;
+    }
+
+    .spacexFamily {
+        position:static;
+        width:100%;
+        height:90vh;
+        overflow:auto !important;
+    }
+    .showPanelButton {
+        line-height:100vh;
+        height:100%;
+        font-size:7rem !important;
+    }
+    .showPanel {
+        position:fixed;
+        top:0;
+        height:100%;
+        z-index:3;
+    }
+    .panelContent {
+        width:100%;
+    }
+    .panelText {
+        float:left;
+        width:100vw;
+    }
+    .innerContent {
+        width:100%;
+    }
+    #f9Large {
+        float:left;
+        width:100vw;
+        height:87vh;
+    }
+    #lastPara {
+        margin-bottom:2vh !important;
+    }
+    #fhLarge {
+        width:100% !important;
+        height:90vh;
+        object-position:bottom !important;
+    }
+    #fHSmall .fhContent {
+        position:static;
+        float:left;
+        width:100% !important;
+        background-color:var(--primary-colour);
+        margin-top:0 !important;
+        box-shadow:none;
+        overflow-x:hidden;
+        border-bottom:none;
+    }
+    #videoPane {
+        float:left;
+        position:static !important;
+        width:100%;
+    }
+    #videoCaption {
+        border-radius:0 !important;
+        text-align:center;
+    }
+    video:not(#fullscreenVideo) {
+        width:100% !important;
+        border-radius:0;
+    }
+    .close {
+        margin-left:-7vw !important;
+    }
+    #mobileMenu {
+        position:fixed;
+    }
+    nav {
+        position:fixed;
+    }
+    #videos {
+        margin-top:20vw;
+    }
+    #spacexVidoes .fhTitle {
+        margin-left:-6vw !important;
+    }
+}
